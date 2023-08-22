@@ -5,34 +5,41 @@ const themeToggler = document.querySelector(".theme-toggler");
 
 // show sidebar menu
 menuBtn.addEventListener("click", () => {
-    sideMenu.style.display = "block";
-})
+  sideMenu.style.display = "block";
+});
 
 // close sidebar menu
 closeBtn.addEventListener("click", () => {
-    sideMenu.style.display = "none";
-})
+  sideMenu.style.display = "none";
+});
 
 // change theme
 themeToggler.addEventListener("click", () => {
-    document.body.classList.toggle("dark-theme-variables");
+  document.body.classList.toggle("dark-theme-variables");
 
-    // themeToggler.querySelector("span").classList.toggle("active");
-    themeToggler.querySelector("span:nth-child(1)").classList.toggle("active");
-    themeToggler.querySelector("span:nth-child(2)").classList.toggle("active");
-})
-
+  // themeToggler.querySelector("span").classList.toggle("active");
+  themeToggler.querySelector("span:nth-child(1)").classList.toggle("active");
+  themeToggler.querySelector("span:nth-child(2)").classList.toggle("active");
+});
 
 // fill order in the table
-orders.forEach(order => {
-    const tr = document.createElement("tr");
-    const trContent = `
+orders.forEach((order) => {
+  const tr = document.createElement("tr");
+  const trContent = `
                         <td>${order.productName}</td>
                         <td>${order.productNumber}</td>
                         <td>${order.paymentStatus}</td>
-                        <td class="${order.shipping === "Declined" ? "danger" :order.shipping === "pending" ? "warning" :order.shipping === "Delivered" ? "success" :"primary"}">${order.shipping}</td>
+                        <td class="${
+                          order.shipping === "Declined"
+                            ? "danger"
+                            : order.shipping === "pending"
+                            ? "warning"
+                            : order.shipping === "Delivered"
+                            ? "success"
+                            : "primary"
+                        }">${order.shipping}</td>
                         <td class="primary">Details</td>
                         `;
-    tr.innerHTML = trContent;
-    document.querySelector("table tbody").appendChild(tr);
-})
+  tr.innerHTML = trContent;
+  document.querySelector("table tbody").appendChild(tr);
+});
